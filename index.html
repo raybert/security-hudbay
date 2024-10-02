@@ -1,0 +1,694 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling/lib/qr-code-styling.js"></script>
+    <meta name="google-signin-client_id"
+        content="163680960870-sfjbn3nntgjf49ri2lcat5tlp73mb3pu.apps.googleusercontent.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>SecurityApp HUDBAY</title>
+</head>
+
+<body>
+
+    <div class="logeado m-auto card px-0" style="max-width: 350px">
+        <div class="card-header text-center h5">
+            <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAAhCAYAAACcE+TUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAAGYktHRAD/AP8A/6C9p5MAABC+SURBVHhe7Z0JWFXVFsf/XObhggIXRcqhweH5xDR7amWWw9MGtTQlUzHNNH1Z+fLVpz2n0jQt5wFxHjIHVMQRTc2ccKycn5WZZApckOFyGRR4e202gnLv2fsgAvXx+76N7MW55+5zzl5rr7322keHoHrBeVDAnJiEPVs24MnmTwiJNo8EP4GUtDQ4OTkJiW1S2TEfDx+GkcPfFxJtLB+/h+wtG+Hg7iEktsk1x6Pq/jMwBNYQEm0eqB+M7OybcHR0FBId5OXBwD5n9PJE9WrV8FDtWmj894Zo9WQLNH0sWBykzrET36Nluxdg8vcTEr3kwcHBACfWJk9PT1QLMOHhOrV5W9o/1xp1H3lYHFc6xF79A7UbNkWAyV9ItMnNzWE/HRD3y7l8QRGitkWjS9cQ+AdWZ9fgIKS2ycnJgcFgQMKvF4REm+Ejx2DuoiXwYvdERrrVihc7tIchKysLSiUzk11Yrvi4nFus8bduUbklLXrOyw5md+YW8iSFjqGOokp+e223T1rYZ7Ozs5FgTsKPp89g3cYofDT6Ezzeqg0cjCb07DcQP/1ySXyTnDymcDm2vke55ODmzZuwsmcWn5DA27R2QyT+PWIU6jHD5RP0EGaFLRTfdu9MnjYLLi7ONtphu+Tm5iE+Lh4HY46KMxTS+YUOaNu+LTIyMoXEPmTMkpNT8Pm0mUJiH6s1A19OnQFPD23DSlB/tKamYe2yhTCQlqoU9oOUXhf5H7N9vttF70k5d53DRtHbWPap/J82zqVaHB0NcHZ2hru7G7y9jTCZTPDz80XU9mjUbfAYWj/fBenp1vwv1EI039Z36Cns4fJOlN8md/h4e8NUvRoc2aj+7ocj8WCDxlyR7pVFy7+CBzu/rTbYK55eXpg+Z744w53siopAenKykuH08fHGiHETRM0+bwweCg8fH/7dMhKTkjB7xhf8dwP/Wcl9g1wAslr+QTVw4ocf4eUbiBWr14m/lg/kepH7lpySCmONOkJaMvbsO8CsvVW3a+rm5oqIjZGidifUib+YMhFJN5KFxD50f50dnTBi7HghKU58ghnrVq+Fh4e7kNiH3OzaNWviX2/15/VKBSkj6KGTlfVjvnVo3wH4gPnD5Y27mxvvYO06dRMS/UyfGwYvNhrohb7X4OSMVevWC8mdfDB0MJ87qYxwRqMXJk2ZJmrF6TNwCDNMvtLRg1zblPh47NwUISSVClLmUMfwrxGIqcxvHjtxipCWHzS67d6xE7G/XxUSfWzevI2NBm6ipg+aLE+bEyZqxdm9eT2Sr8fxjqsF3VM3dh2Dh30oJIVcunwZO7fuUGpjmsWC0P6hePThwlG1UkHKAbJk/mwuMG7UOHx36LCQlgzy0zOzsu4oZHVlnaoAaosL8+OXfPW1kKizZOUqOLq6SC2zPWhifzzmGCyWdCG5k7/Vr4eQXj1hSbf996J4eXkibF44DygVpWe/QTCa/KVtpIgYBTeWhc0WknwqFaScoAfmy+Yl7Tt3FxL9kHJQGL3lE83w+GPBvDRr8hhzTQJgTkhQmuQSLs4uiDl6QtTUmT4nXClkag+unKxjz5q/QEiKs3ppODIzs6TXQufyYIr+xuB3hQT4/tRpHD0UAzdXVyGxDRmTJHMiVi0qPppVKkgJoKE4gU38ihZzYiJSUlORrcN608SW1gRGf/a5kOiDrB6tPURHrsXerZG80FrVhROHcOnsSd4eFSWh6NvVa3+ImhrJKSk4deIkj5DdCx7MNZodvljUbLNs/iwksg4su6t0rtUrv0Zi0g1ep9HDR2FtJis7G42ZcenRtYuQFFKpIDoh5aCFzfOsE548sAcnD7LC/v122yZMGjsK1dnE0swURlVJvL29MXHKdFHTD7kFtqhTqxYGv9kPGRkZQqKFA3PLaN1InWlz5sOVWWwV10ULiqj9ERuLCxd/EpLihPYMQYMG9ZCdlS0ktqG2ePr5YtB7H+DM+Qv4HysyBabnlMaU75so28ECXQri4uIifpNDMfi/IrTQVad2LdSv+yiaNG6EJsGssH+feaolhr3zNrPeh7FmxSKY4+LVrDebYN7KuYWt0buEpPTw862KXAVFzWGjWM0HHxA1NWaFLYCHJJuB7hVFuLSUhDq1u9GI6XNtr4kUsGtTBFLNCVLDQ5G5Hbv2oHOP3vBVmHvQKPvB8PfhzxTLFsoK4sqUg1IgDh89jn0HDmmWU2fO4Ra76bLG/VmhB69Fj1e6YM+OKCQyJVEZScg1WLXWtgWTQe6RPeYvWc47jIzMzEx0aPucqMn58fRZ3GBW18nJ/toHGYcMdt5Nq5dL1zNoEXMJc420CKoRiCHvDOapSVpwhXN34x1ftjZDGRBk9L+YME5IiuNgqlNfzRdgpKamcX9NBd+qVZQWj+ic//3w37yoYBkxFNmbN8CBdSotchPiUfXQORgCg4REm8BH/44sNoRrPXTiRnIyFs6ejr6vhwiJfV55vS927d3H1z+0IIUjV6AgN+ko8+2bP9cBJn9t/5ksM1no94cMvB3pMTgYWIe8gcUrVrFOmgdXV+1RnzpyIoVSM+WLcgXQqvS6DVHw9LT/DKzMtSOlW79yCdz8H4Anm4zTaGkPmsftiFzDPtNGSGzjbnqQL/jpXZi8GzJc5mvX8U30ZrRt3UpIi6PLxeLpE/5+SuVeL+CvwITRI5HOLJ5sFKF7FX8lVtTUoc9Z2JxoxJjxmDB5Gi+ffv4l5i1aytcGZMpB7Ur84xrC5s0QEjWWrVzNrbQ96LyUUjOwXyivv96jGzIluVVeRi8+r5ERsXIxkhLkrpYMGjWfeba1pnIQuhSkEn1QHN+FuTiyh8ldUTbUU1asXkhJyHAVLRR6lRkoGjnMv1/FiI8/wqB+fYVUzqat2+FgcOAKaI/868277bYN6t8X1nQL/90eFIqN3r5T1OxDGbYtWrbg6z0lhdpnSbqB3Vs3CIl9KhXkPlO7Vk1pJIfDOlyC2Swq9xdSDurgF859j8/GfCykakxjk2kvT+3UElq3COn6iqgBzZs1hYfCZN2JjUrzFy8XEvt8s3k9LIlJJR5FyAWdNOlTHkGTUakg95kqPj5KkSTK3qWOVRZQZ6TV9rYvdcWoTycKqRxSrH27v5W6bunW9NvuVQG9Q7rzSbsWlPYyMyxc1OxDx41min0jOUVI1KHrprndR8MKFxS1+PMpiBi+5bBjSmhhShMr88WVonmsqfe66KYKt9ZOTmwinYnJ02fDwcMXKxUyjGeHL4Iz65xa10NKRNfSpvXTQpLPoP6hyLCka1p9uv5zP55SGknHjfyQb1CTRRSLQt+dHBeP6I1rhUTOn09BXFz5A5BCD6KESXSlyeUrV9QCFnm5fN2irMhXEke+n8IvwIQ+of0xZsJk8VfbzJgXrhm5ImiU6N2zePpM08bBMNJoSgpkB2qTq7e30mSdiN64BjcUkhkLoF2C3UK6oXGjhkIiR5eC0MWpFtVG002RDb1FcaxVJ3/HoAb8u9l5Db5qW0AJK7t5WpaxJFy9dh2WlFTpoilvb/ZNvlVXL2RBE8yJNgulXFC4VfYseIZxUBA+GT0WMcds52RdYRP6Sxd/4iOPFrRzz17I/r0hA6U7Bcl9opFKhX80exydXunCI1IyqE+SexWxYomQqKGsIPQFlGdEF0g3XasUJJepKAk9nLj4BFGT49KxC/Isqdrnzs6GUxO1vfMFpLKJm8FQugoyfvKXcDd6SRWP7hWlSOiFlMPfzw9njnyH/dFRRcpmHNi5BVsjVuHFf7ZDElMU2bOgNvrUqIGQNwYIyZ3MYJNzN6NRei3e7HqHfTQKbTt1RRs2xyko7bu8im/27pPOX2i0TWNzi2MnfxASbaZ/Pt5uNnBRqF++M9D2tWmhrCBkjY7sjUZ63G+wxl3RLJbrl1G1io9S9IaG+QsXfxY1OY5BD8Ll6TbIsxM2pI6QG38NnmPV91rQFks4lK63eenX3xAWtoBbRBm0i+3ZVk+Jmjp0rZQy3rBBfTzdskWR0hxPtfgHOrZrgzXLFuLNvr35CCnDhc0Brvz0C9/HfjfhS1ZIFzwJV1dXHIw5gmMnfsBx1skLypFjJ3m+lco8y4MpGW3EUuHmzWy6EaKmATskhxkivejqFbwjKWIvie5u6IbFHDsuamp4r94Gx8Ag5CYw/zPDirysLOSxYTY3LRW5V2Ph9cV8OAU3FUfL+Xb/ITiydqi6WFprAMTps+dRt2kL+AYEKJ2TrFv3lzuLmj5otVwGbR+lCbkKBqbQdD+KcuDwEVjS0tTmUgxSEtpSe3dRDUJQesyqr9Um0iq6cRtdB+dTumazBFAHymEu0UVmufRQZfcJGOethHObDnCs35C5VM3g3n8IfM9eg1uv/P3EqqxZvxFuGivDRSHloAxZute0WkyFOni82YwtO3bhpe69ENzsSfh4G5U6FHXw3OwspdSVkkJtkyl1Afmp79dELR9a+/BkVr2soLbSdtyIyM1CUn5UCAVx8/Tg6RF6cenYGcYZi+GzZju8l22Ex3/GwFBVvy+/bn0ks3BqCkJvBhn6nxEweFaFlymIF0+/GqhWqx66vNaHJ2vSbkFVa5ueno63BvQTNf3IcseIt98bzucGqtzd9g2RUdJNR6UN5W7JMnzLgnJXEIL8dAohlgcTp86EMxv+9aTn578+p/qdpVoAD9NSjpKqq0aT80yLBeEzpwqJPqgjU7SKFLNj15A7ygvdeqJVh04w+ARw11jVvaF5Y80HClPfv1obAYOjk/IIVFpQ9vjBfft55Kk8qRAKQjff2Vn71S33i5GjP2HW1ShqZQdNsCmLdvGCuUKiH7pv1IH2fHeAv4StaNl/OIZvO/D19VXex8MDHExhO7YrTH1X3VZLn9VbtCAj48xGkZlh9rfjlgUVQkEI6qSTJk7hawdlxTPPd+a+dVlbR+ocFBXsHvIq+vXuKaQlg9pOk1pbhUKqekZG2srQpEXz2+4mhU+PxxzhkTIt6HroHVs0UqkVtfWZfM+iUkE4ZDGqMDelAZvglgU0Wu0/eFgpdFmaUKcwM7eI3pFLr7asKFC70tiItnZ54SId5UW5MAOi5TLy64lPwOnD+5CbEq9Y4jCoX6j0LZO0KBn762X8wkp5UWEUhHBmN4RueFDdRkJyf6A9E5NYoUW2soTcIUoxH/bOYP6ihYoCzYXMsb9jdthMPPJQ4TuhZs1fJF3HycnJha/JD/XrPSokarxN++VVdgcyBZ0xt3zmp0SFUhCCXAN6MYJHQE2cOXdeSEsPmtCO/vQzHmlSnUzfC6Tw/MXWzMrS+sAP38dg6sRPxF/LF2ob7URMZG7tiq+W4l9vvSn+Apz/30VcZ8osSy3JyMxA6Gv6Q9R1H3kIvsxjkCUb0nbchctXilrZU+EUhCAfmEqjJi3Q+60hQnpvbNqyHcbAOti551v4m0z3TTmo09FIQT42bc+lEYOiQutXLcP1n8/y/xahvChoGyXt0TyAtpx2er4DrMzl6c3mQ0WhF0u7e2sHL+h8mWyeMqBvLyHRx8A3+khzsyhSl8Hau/e7g0JStlRIBSEovk+v6NwQtQUOLt54qUcvRG7ZppSYVsBvV2IxfvJUmOrUx8s9+8CZTTaNXvLcqJJCHYYeaMMG9dDnte5YHj4H1rQEnIrZh66dXxRHlQ/UNgr1Nmr4N7wZyu7l18v4PvQ1SxfwUftuwpfKU0vINQsMCuKpLiVh6NsDkMkMiQzadz9pqr5twaUD8H/ODEWC0g9FcAAAAABJRU5ErkJggg=="><br>SecurityApp
+        </div>
+        <div class="card-body px-1">
+
+            <form id="addEquipo" enctype="multipart/form-data" style="">
+                <div class="row">
+                    <div class="col-3 small align-top"><b>USUARIO</b></div>
+                    <div class="col small usuario"></div>
+                </div>
+                <div class="nav nav-tabs d-flex small" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link small" id="navtab1-tab" data-toggle="tab" href="#navtab1" role="tab"
+                        aria-controls="navtab1" aria-selected="false">EQUIPO</a>
+                    <a class="nav-item nav-link small active" id="navtab2-tab" data-toggle="tab" href="#navtab2"
+                        role="tab" aria-controls="navtab2" aria-selected="true">HISTORIAL</a>
+                    <a class="nav-item nav-link small" id="navtab3-tab" data-toggle="tab" href="#navtab3" role="tab"
+                        aria-controls="navtab3" aria-selected="false">QR</a>
+                    <a class="nav-item nav-link small" id="navtab4-tab" data-toggle="tab" href="#navtab4" role="tab"
+                        aria-controls="navtab4" aria-selected="false">RESERVAS</a>
+                </div>
+                <div class="tab-content py-2" id="nav-tabContent">
+                    <div class="tab-pane fade" id="navtab1" role="tabpanel" aria-labelledby="navtab1-tab">
+                        <h6>Registre sus equipos de forma individual:</h6>
+                        <div class="row">
+                            <div class="col-5 small"><b>TIPO</b></div>
+                            <div class="col">
+                                <select name="tipo" class="tipo form-control form-control-sm" required>
+                                    <option value=""></option>
+                                    <option value="Celular">Celular</option>
+                                    <option value="Laptop/Tablets/IPAD/DockinStation">Laptop/Tablets/IPAD/DockinStation
+                                    </option>
+                                    <option value="Videojuegos/SmartWacth">Videojuegos/SmartWacth</option>
+                                    <option value="ArticulosMusicales">ArticulosMusicales</option>
+                                    <option value="ArticulosPersonales">ArticulosPersonales</option>
+                                    <option value="Otros">Otros</option>
+                                </select>
+                            </div>
+                            <div class="w-100"></div>
+                            <div class="col-5 small"><b>DESCRIPCION</b></div>
+                            <div class="col"><input type="text" class="form-control form-control-sm vacio"
+                                    name="descripcion"></div>
+                            <div class="w-100"></div>
+                            <div class="col-5 small"><b>MARCA</b></div>
+                            <div class="col"><input type="text" class="form-control form-control-sm vacio" name="marca"
+                                    required></div>
+                            <div class="w-100"></div>
+                            <div class="col-5 small"><b>MODELO</b></div>
+                            <div class="col"><input type="text" class="form-control form-control-sm vacio"
+                                    name="modelo"></div>
+                            <div class="w-100"></div>
+                            <div class="col-5 small"><b>Serie/IMEI</b></div>
+                            <div class="col"><input type="text" class="serie form-control form-control-sm vacio"
+                                    name="serie"></div>
+                            <div class="w-100"></div>
+                            <div class="col-5 small"><b>ACCESORIOS</b></div>
+                            <div class="col"><input type="text" class="form-control form-control-sm vacio"
+                                    name="accesorio"></div>
+                            <div class="w-100"></div>
+                            <div class="col-5 small"><b>FOTO</b></div>
+                            <div class="col"><input type="file" name="foto" accept="image/*" class="vacio" /></div>
+                        </div>
+                        <div class="card-footer text-muted text-center">
+                            <div class="spinner-border" role="status">
+                                <span class="sr-only">Cargando...</span>
+                            </div>
+                            <button type="submit" class="guarda btn btn-primary">AGREGAR</button>
+                            <input type="hidden" id="dni2" name="dni">
+                        </div>
+                    </div>
+                    <div class="tab-pane fade show active" id="navtab2" role="tabpanel" aria-labelledby="navtab2-tab">
+                        <div class="modal-body table-responsive">
+                            <table class="table table-sm small">
+                                <thead>
+                                    <tr>
+                                        <th style=width:30%!important>Fecha</th>
+                                        <th>Status</th>
+                                        <th>Tipo</th>
+                                        <th>Serie</th>
+                                        <th>Marca</th>
+                                        <th>Modelo</th>
+                                        <th>Descripcion</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id=cargaHistorial>
+                                    <tr>
+                                        <td>11-09-2024</td>
+                                        <td class="estado18688 bg-success">Aprobado</td>
+                                        <td>Celular</td>
+                                        <td>353603510168598</td>
+                                        <td>SAMSUNG</td>
+                                        <td>S23</td>
+                                        <td>TELEFONO</td>
+                                        <td><button type=button class="btn btn-sm btn-outline-danger debaja18688">Dar de
+                                                baja</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>28-08-2024</td>
+                                        <td class="estado14596 bg-success">Aprobado</td>
+                                        <td>Laptop/Tablets/IPAD/DockinStation</td>
+                                        <td>J151NV2</td>
+                                        <td>DELL</td>
+                                        <td>LATITUDE 5490</td>
+                                        <td>LAPTOP</td>
+                                        <td><button type=button class="btn btn-sm btn-outline-danger debaja14596">Dar de
+                                                baja</button></td>
+                                    </tr>                                    
+                                    <tr>
+                                        <td>11-02-2024</td>
+                                        <td class="estado20415 bg-success">Aprobado</td>
+                                        <td>ArticulosPersonales</td>
+                                        <td>21073097834800</td>
+                                        <td>CAFINI</td>
+                                        <td>CN-DY9783</td>
+                                        <td>POWER BANK</td>
+                                        <td><button type=button class="btn btn-sm btn-outline-danger debaja20415">Dar de
+                                                baja</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>11-02-2024</td>
+                                        <td class="estado18688 bg-success">Aprobado</td>
+                                        <td>ArticulosPersonales</td>
+                                        <td>867039040289548</td>
+                                        <td>ORICO</td>
+                                        <td>WXH1A66J4C7H</td>
+                                        <td>DISCO DURO</td>
+                                        <td><button type=button class="btn btn-sm btn-outline-danger debaja18688">Dar de
+                                                baja</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>11-05-2023</td>
+                                        <td class="estado20415 bg-success">Aprobado</td>
+                                        <td>Celular</td>
+                                        <td>864064043868307</td>
+                                        <td>POCO</td>
+                                        <td>F2 PRO</td>
+                                        <td>TELEFONO</td>
+                                        <td><button type=button class="btn btn-sm btn-outline-danger debaja20415">Dar de
+                                                baja</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>17-03-2023</td>
+                                        <td class="estado18688 bg-success">Aprobado</td>
+                                        <td>Videojuegos/SmartWacth</td>
+                                        <td>19521330L99254</td>
+                                        <td>AMAZFIT</td>
+                                        <td>GTR NE</td>
+                                        <td>SMARTWATCH</td>
+                                        <td><button type=button class="btn btn-sm btn-outline-danger debaja18688">Dar de
+                                                baja</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>17-03-2023</td>
+                                        <td class="estado18688 bg-success">Aprobado</td>
+                                        <td>Celular</td>
+                                        <td>867039040289548</td>
+                                        <td>HUAWEI</td>
+                                        <td>Y6 2019</td>
+                                        <td>TELEFONO</td>
+                                        <td><button type=button class="btn btn-sm btn-outline-danger debaja18688">Dar de
+                                                baja</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>08-12-2022</td>
+                                        <td class="estado14597 bg-success">Aprobado</td>
+                                        <td>Laptop/Tablets/IPAD/DockinStation</td>
+                                        <td>866149028406880</td>
+                                        <td>ALLDOCUBE</td>
+                                        <td>IPLAY 40H</td>
+                                        <td>TABLET</td>
+                                        <td><button type=button class="btn btn-sm btn-outline-danger debaja14597">Dar de
+                                                baja</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>16-02-2022</td>
+                                        <td class="estado17716 bg-warning">De baja</td>
+                                        <td>Laptop/Tablets/IPAD/DockinStation</td>
+                                        <td>65XQM12</td>
+                                        <td>DELL</td>
+                                        <td>LATITUDE E6440</td>
+                                        <td>LAPTOP</td>
+                                        <td><button style=display:none type=button
+                                                class="btn btn-sm btn-outline-danger debaja17716">Dar de
+                                                baja</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>14-12-2021</td>
+                                        <td class="estado14921 bg-warning">De baja</td>
+                                        <td>ArticulosPersonales</td>
+                                        <td>WXH1A66J4C7H</td>
+                                        <td>WD</td>
+                                        <td>ELEMENTS</td>
+                                        <td>DISCO DURO</td>
+                                        <td><button style=display:none type=button
+                                                class="btn btn-sm btn-outline-danger debaja14921">Dar de
+                                                baja</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>08-12-2021</td>
+                                        <td class="estado14594 bg-warning">De baja</td>
+                                        <td>Celular</td>
+                                        <td>864856054729967</td>
+                                        <td>POCO</td>
+                                        <td>F3</td>
+                                        <td>TELEFONO</td>
+                                        <td><button style=display:none type=button
+                                                class="btn btn-sm btn-outline-danger debaja14594">Dar de
+                                                baja</button></td>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="navtab3" role="tabpanel" aria-labelledby="navtab3-tab">
+                        <div class="modal-body">
+                            <div class="mx-auto" style="width: 250px;" id="qrcode">
+                                <canvas width=250 height=250
+                                    style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:center center!important;background-color:rgba(0,0,0,0)!important;background-image:url(data:image/png;base64,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)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="navtab4" role="tabpanel" aria-labelledby="navtab4-tab">
+                        <div class="modal-body table-responsive">
+                            <table class="table table-sm small">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>ID Prog</th>
+                                        <th>Fecha Viaje</th>
+                                        <th>Destino</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody id=cargaReserva>
+
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240828225928"
+                                                target=new>R240828225928</a></td>
+                                        <td>016019</td>
+                                        <td>02-10-2024</td>
+                                        <td>Arequipa</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240929237621"
+                                                target=new>R240929237621</a></td>
+                                        <td>016019</td>
+                                        <td>25-09-2024</td>
+                                        <td>Constancia</td>
+                                    </tr>
+
+                                    <tr></tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240924235946"
+                                                target=new>R240924235946</a></td>
+                                        <td>015860</td>
+                                        <td>25-09-2024</td>
+                                        <td>Constancia</td>
+                                    </tr>
+  
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240729214848"
+                                                target=new>R240729214848</a></td>
+                                        <td>015115</td>
+                                        <td>01-08-2024</td>
+                                        <td>Arequipa</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240722211953"
+                                                target=new>R240722211953</a></td>
+                                        <td>015018</td>
+                                        <td>24-07-2024</td>
+                                        <td>Constancia</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240712209176"
+                                                target=new>R240712209176</a></td>
+                                        <td>014943</td>
+                                        <td>15-07-2024</td>
+                                        <td>Arequipa</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240708207396"
+                                                target=new>R240708207396</a></td>
+                                        <td>014914</td>
+                                        <td>11-07-2024</td>
+                                        <td>Arequipa</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240701204137"
+                                                target=new>R240701204137</a></td>
+                                        <td>014841</td>
+                                        <td>03-07-2024</td>
+                                        <td>Constancia</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240621199930"
+                                                target=new>R240621199930</a></td>
+                                        <td>014510</td>
+                                        <td>27-06-2024</td>
+                                        <td>Arequipa</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240617198685"
+                                                target=new>R240617198685</a></td>
+                                        <td>014436</td>
+                                        <td>19-06-2024</td>
+                                        <td>Constancia</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240607195068"
+                                                target=new>R240607195068</a></td>
+                                        <td>014390</td>
+                                        <td>13-06-2024</td>
+                                        <td>Arequipa</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240603193391"
+                                                target=new>R240603193391</a></td>
+                                        <td>014317</td>
+                                        <td>05-06-2024</td>
+                                        <td>Constancia</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240530191697"
+                                                target=new>R240530191697</a></td>
+                                        <td>014672</td>
+                                        <td>31-05-2024</td>
+                                        <td>Arequipa</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240521188176"
+                                                target=new>R240521188176</a></td>
+                                        <td>014203</td>
+                                        <td>26-05-2024</td>
+                                        <td>Constancia</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240519187062"
+                                                target=new>R240519187062</a></td>
+                                        <td>014175</td>
+                                        <td>22-05-2024</td>
+                                        <td>Arequipa</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240520187356"
+                                                target=new>R240520187356</a></td>
+                                        <td>014155</td>
+                                        <td>20-05-2024</td>
+                                        <td>Arequipa</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240511183805"
+                                                target=new>R240511183805</a></td>
+                                        <td>014102</td>
+                                        <td>14-05-2024</td>
+                                        <td>Constancia</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240413173719"
+                                                target=new>R240413173719</a></td>
+                                        <td>013623</td>
+                                        <td>23-04-2024</td>
+                                        <td>Constancia</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240413173718"
+                                                target=new>R240413173718</a></td>
+                                        <td>013576</td>
+                                        <td>17-04-2024</td>
+                                        <td>Arequipa</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240331168155"
+                                                target=new>R240331168155</a></td>
+                                        <td>013503</td>
+                                        <td>09-04-2024</td>
+                                        <td>Constancia</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240331168154"
+                                                target=new>R240331168154</a></td>
+                                        <td>013458</td>
+                                        <td>03-04-2024</td>
+                                        <td>Arequipa</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240316163721"
+                                                target=new>R240316163721</a></td>
+                                        <td>013222</td>
+                                        <td>26-03-2024</td>
+                                        <td>Constancia</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240316163720"
+                                                target=new>R240316163720</a></td>
+                                        <td>013176</td>
+                                        <td>20-03-2024</td>
+                                        <td>Arequipa</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240301158964"
+                                                target=new>R240301158964</a></td>
+                                        <td>013118</td>
+                                        <td>13-03-2024</td>
+                                        <td>Arequipa</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240305159930"
+                                                target=new>R240305159930</a></td>
+                                        <td>013103</td>
+                                        <td>12-03-2024</td>
+                                        <td>Constancia</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240305159923"
+                                                target=new>R240305159923</a></td>
+                                        <td>013058</td>
+                                        <td>06-03-2024</td>
+                                        <td>Arequipa</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240216152323"
+                                                target=new>R240216152323</a></td>
+                                        <td>012773</td>
+                                        <td>28-02-2024</td>
+                                        <td>Constancia</td>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240216152322"
+                                                target=new>R240216152322</a></td>
+                                        <td>012717</td>
+                                        <td>21-02-2024</td>
+                                        <td>Arequipa</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240210150734"
+                                                target=new>R240210150734</a></td>
+                                        <td>012652</td>
+                                        <td>13-02-2024</td>
+                                        <td>Constancia</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240204149033"
+                                                target=new>R240204149033</a></td>
+                                        <td>012607</td>
+                                        <td>07-02-2024</td>
+                                        <td>Arequipa</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240128147286"
+                                                target=new>R240128147286</a></td>
+                                        <td>012360</td>
+                                        <td>30-01-2024</td>
+                                        <td>Constancia</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R240122144678"
+                                                target=new>R240122144678</a></td>
+                                        <td>012316</td>
+                                        <td>24-01-2024</td>
+                                        <td>Constancia</td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://warcoglobal.com/hudbay/securityapp/boarding.html?id=R231206130282"
+                                                target=new>R231206130282</a></td>
+                                        <td>012117</td>
+                                        <td>08-12-2023</td>
+                                        <td>Arequipa</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    </div>
+    <script src="https://kit.fontawesome.com/6cd8ce65ef.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        function cargaGoogle() {
+            gapi.load('auth2', function () {
+                gapi.auth2.init();
+            });
+
+            crossorigin
+
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                auth2.disconnect();
+                console.log('User signed out.');
+            });
+        }
+
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            var mail = profile.getEmail();
+            Ingreso(mail);
+        }
+
+        function Ingreso(mail) {
+            if (mail) {
+                $("#login").hide();
+                $(".logeado").show();
+                $.ajax({
+                    type: 'POST',
+                    url: 'db_tools.php',
+                    data: { validaUsuario: mail },
+                    dataType: "json"
+                }).done(function (data) {
+                    if (data.status == 1) {
+                        $("#addEquipo").show();
+                        $(".usuario").html(data.nombre);
+                        $("#dni2").val(data.dni);
+                        cargaHistorial(data.dni);
+                        cargaReserva(data.dni);
+                        updateQRCode(data.dni);
+                    } else {
+                        $("#addPerfil").show();
+                        $(".correo").html(mail);
+                        $("#correo").val(mail);
+                    }
+
+                }).fail(function () {
+                    alert("Posting failed.");
+                });
+            } else {
+                alert("Usuario vacio");
+            }
+
+        }
+
+        $(".tipo").on('change', function (e) {
+            if ($(this).val() == "Laptop/Tablets/IPAD/DockinStation" || $(this).val() == "Celular")
+                $(".serie").attr("required", true);
+            else
+                $(".serie").attr("required", false);
+        });
+
+
+        $("#addPerfil").on('submit', function (e) {
+            $(".registra").attr("disabled", true);
+            e.preventDefault();
+            var formData = new FormData(document.getElementById('addPerfil'));
+            formData.append('estado', 'addPerfil');
+            $.ajax({
+                type: 'POST',
+                url: 'db_tools.php',
+                data: formData,
+                contentType: false,
+                cache: false,
+                processData: false
+            }).done(function (data) {
+
+                if (data == 1) {
+                    alert('Sus datos fueron guardados, gracias');
+                    $("#addPerfil").hide();
+                    $("#addEquipo").show();
+                    $(".usuario").html($("#nom").val() + ' ' + $("#ape_pat").val() + ' ' + $("#ape_mat").val());
+                    $("#dni2").val($("#dni").val());
+                }
+                if (data == 2) {
+                    alert('El DNI ingresado ya existe. Por favor contacte al administrador del sistema');
+                    gapi.auth2.getAuthInstance().signOut();
+                    location.href = location.href;
+                }
+
+            }).fail(function (xhr, textStatus, error) {
+                console.log(xhr.statusText);
+                console.log(textStatus);
+                alert(error);
+            });
+        });
+
+        $("#addEquipo").on('submit', function (e) {
+            $(".spinner-border").show();
+            $(".guarda").attr("disabled", true);
+            e.preventDefault();
+            var formData = new FormData(document.getElementById('addEquipo'));
+            formData.append('estado', 'addEquipo');
+            $.ajax({
+                type: 'POST',
+                url: 'db_tools.php',
+                data: formData,
+                contentType: false,
+                cache: false,
+                processData: false
+            }).done(function (data) {
+                $(".spinner-border").hide();
+                if (data == 1)
+                    alert("Su equipo fue registrado!");
+                else
+                    alert("Este equipo ya se encuentra registrado, por favor reporte el incidente");
+                $(".vacio").val("");
+                cargaHistorial($("#dni2").val());
+                $(".guarda").attr("disabled", false);
+                //$(".card-footer").html(data);
+
+            }).fail(function (xhr, textStatus, error) {
+                console.log(xhr.statusText);
+                console.log(textStatus);
+                alert(error);
+            });
+        });
+
+        function cargaHistorial(dni) {
+            $.post("db_tools.php", { estado: "cargaHistorial", dni: dni }, function (data, status) {
+                $("#cargaHistorial").html(data);
+            });
+        }
+
+        function cargaReserva(dni) {
+            $.post("db_tools.php", { estado: "cargaReserva", dni: dni }, function (data, status) {
+                $("#cargaReserva").html(data);
+            });
+        }
+
+        function debaja(id) {
+            var r = confirm("Confirma la baja de este equipo?");
+            if (r == true) {
+                $(".estado" + id).html("guardando..");
+                $(".estado" + id).removeClass("bg-danger");
+                $(".estado" + id).removeClass("bg-success");
+                $.post("db_tools.php", {
+                    estado: 3,
+                    id: id,
+                    revisor: $("#dni2").val()
+                }, function (data, status) {
+                    $(".debaja" + id).hide();
+                    $(".estado" + id).html("De baja");
+                    $(".estado" + id).addClass("bg-warning");
+                });
+            }
+        }
+
+        function updateQRCode(dni) {
+            const qrCode = new QRCodeStyling({
+                width: 250,
+                height: 250,
+                data: "https://warcoglobal.com/hudbay/securityapp/consulta.html?dni=" + dni,
+                //image:    "https://lh3.googleusercontent.com/ogw/ADGmqu_MN8SycvmR5uqUWFdKpIJ4-LP1NWLBKoNmQ0JO=s83-c-mo",
+                dotsOptions: {
+                    color: "#000",
+                    type: "square"
+                },
+                backgroundOptions: {
+                    color: "#FFF",
+                }
+            });
+            qrCode.append(document.getElementById("qrcode"));
+
+        }
+
+        $(document).ready(function () {
+            $(".spinner-border").hide();
+
+            $(function () {
+                $('input').keyup(function () {
+                    this.value = this.value.toLocaleUpperCase();
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
